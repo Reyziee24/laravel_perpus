@@ -74,6 +74,25 @@ class Keranjang extends Component
         session()->flash('sukses', 'Buku berhasil dipinjam');
     }
 
+    public function kembali(Peminjaman $peminjaman)
+    {
+        $data = [
+            'status' => 3,
+            'petugas_kembali' => auth()->user()->id,
+            'tanggal_pengembalian' => today(),
+            'denda' => 0
+        ];
+
+        foreach ($peminjaman->detail_peminjaman as $detail_peminjaman) {
+            $detail_peminjaman->buku->update([
+                'stok' => $detail_peminjaman->buku->stok + 1
+            ]);
+        }
+        
+        $peminjaman->update($data);
+        session()->flash('sukses', 'Buku berhasil dikembalikan.');
+    }
+
     public function render()
     {
 
@@ -106,10 +125,5 @@ class Keranjang extends Component
         $this->belum_dipinjam = false;
         $this->selesai_dipinjam = false;
     }
-
-
-
-    
-
 
 }
