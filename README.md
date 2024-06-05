@@ -4,8 +4,8 @@
 
 Laravel 8 pepustakaan dibuat oleh :
 
-- Github : <a href="https://github.com/musyahya"> Musyahya </a>
-- Youtube : <a href="https://www.youtube.com/channel/UC1iCvpMssrHnUsWKEe2cOag"> Musyahya </a>
+- Github : <a href="https://github.com/Reyziee24"> Reyziee
+-  </a>
 
 ## Fitur 
 
